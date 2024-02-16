@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">My Blog</a>
+
+            <div class="md:hidden">
+                <button id="menuToggle" class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="hidden md:flex">
+                <a href="index.html" class="mr-4">Home</a>
+                <a href="articles.html" class="mr-4">Blog</a>
+                <a href="about.html" class="mr-4">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="bg-gray-600 text-white p-2">
+        <div class="container mx-auto flex justify-center">
+            <a href="#" onclick="fetchNewsByCategory('technology')" class="mr-4">Technology</a>
+            <a href="#" onclick="fetchNewsByCategory('science')" class="mr-4">Science</a>
+            <a href="#" onclick="fetchNewsByCategory('health')">Health</a>
+        </div>
+    </nav>
+
+    <main id="mainContent" class="max-w-5xl mx-auto bg-white shadow-md p-8 mt-8">
+        
+        <section id="articlesSection">
+        </section>
+
+        <section id="commentSection">
+            <h2 class="text-xl font-bold">Comments</h2>
+            <form id="commentForm">
+                <label for="commentInput" class="block text-gray-700 text-sm font-bold mb-2">Leave a Comment:</label>
+                <textarea id="commentInput" class="w-full h-24 px-3 py-2 border rounded-md"></textarea>
+                <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md">Submit Comment</button>
+            </form>
+            <ul id="commentsList" class="mt-4 list-none p-0"></ul>
+        </section>
+
+        <section id="pagination" class="mt-8 flex justify-center items-center">
+            <button id="prevPage" class="bg-gray-500 text-white py-2 px-4 rounded-md mr-2" disabled>Previous</button>
+            <span id="currentPage" class="text-gray-700 font-bold mx-2">Page 1</span>
+            <button id="nextPage" class="bg-gray-500 text-white py-2 px-4 rounded-md" disabled>Next</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
